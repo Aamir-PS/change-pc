@@ -1,0 +1,135 @@
+
+
+// aa if nu start thay bathi coding je vu if che aa aama khali () aa ni aavi biju se che
+$text: 3;
+
+p{
+    @if $text < 5{
+        background: amir;
+    }
+
+    // aa js jevu nathi ke string hoy ane string ma 1 + 1 =  "2" lakhe la hoy ne condition true thay  aama day reck error aave
+    @if 1 + 1 == 2{
+        background: ans2;
+    }
+
+    a{
+        @if $text <= 1 {
+            color: white1;
+            font-size: 25px;
+        }
+ 
+        // aa else-if che  scss && ne aa rite use thay--> "and" khali and lakhay
+        @else if $text > 0 and  $text < 3{
+
+            color: green2;
+        }
+        @else if $text > 0 and  $text < 8{
+
+            color: green3;
+        }
+        // aa else che 
+        @else {
+            color: no;
+
+        }
+    }
+}
+
+
+$value: 54; // aamari ek blu che me agari varible aape lo but sass ma aap nu ni hoy e function ma le --> koy codi ma aavu ni aave je me kay ru 
+
+// aarit use thase program 
+@mixin changeColor($value){
+    // ato aavse je 
+    font-size: $value + px;
+
+    // ane aatle thi if and else 
+    @if $value > 0 and $value < 0 {
+        color: green;
+    }@else if $value > 20 and $value <= 50 {
+        color: blue;
+    }@else{
+        color: red;
+    }
+}
+
+#if-else{
+    @include changeColor(15)
+}
+
+
+// aatle me 1 bul kari pela @include kay ru ane pachi mixin kay ru 
+
+@mixin box($value){
+
+    @if $value == true {
+        background: $text-color;
+        color: $white;
+    }@else{
+        background: $secondary-color;
+        color: $white;
+    }
+}
+
+.mybox{
+    @include box(true);
+    padding: 20px;
+    margin: 100px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mybox2{
+    @include box(no);
+    padding: 20px;
+    margin: 100px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    h2{
+        background: $primary-color ;
+    }
+}
+
+// aatle thi have for loop
+// aapde for1 thi for3 karvu hoy to 
+@for $i from 1 through 3{
+    .for#{$i}{
+        background: #000;
+    }
+}
+// aa i=500px che to 500px * kar he
+@for $i from 1 through 3{
+    .for-#{$i}{
+        width: 500px * $i ;
+        background-color: darken(pink, $i * 1px);
+    }
+}
+// aa tale "through" ni jagaye "to"use thase -->aa 1 thi 2 count thase last "3" count ni thase
+@for $i from 1 to 3{
+    .for-#{$i}{
+        width: 500px * $i ;
+        background-color: darken(pink, $i * 1px);
+    }
+}
+
+
+// aa ma aari te batha ne style aapaye
+$map : (normal: 12px, bold: 13px, italic: 14px);
+@each $m,$f-size,$arr in ($map){
+    .#{$m}{
+        font-weight: #{$m};
+        font-size: $f-size;
+    }
+}
+
+// atle thi have while loop chalu thay
+$i: 10;
+$f-size: 105 * $i;
+@while $i <= 50{
+    .padding-#{$i}{
+        padding-top: 1px * $i;
+        font-size: $f-size;
+    }
+    $i: $i + 10;
+}

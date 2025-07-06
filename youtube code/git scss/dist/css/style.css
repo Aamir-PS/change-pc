@@ -1,0 +1,523 @@
+header {
+  border-radius: 0px;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav img {
+  margin-top: 0px;
+  width: 80px;
+}
+header nav ul {
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+  padding: 0px;
+}
+header nav li {
+  padding: 0px 15px;
+}
+header nav li:first-child {
+  padding-left: 0px;
+}
+header nav li::selection {
+  display: none;
+  visibility: hidden;
+}
+header nav button {
+  background: #f39c12;
+  padding: 10px 18px;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 0px;
+  color: #f4f4f4;
+  letter-spacing: 2%;
+}
+header nav button::selection {
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: red !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: black !important;
+    font-size: 16px;
+  }
+}
+.operators {
+  padding: true;
+}
+
+.operators {
+  padding: -10px;
+}
+
+.operators {
+  margin-left: 10px;
+}
+
+.icon-png {
+  background-image: url("../dist/image/png.png");
+}
+
+p {
+  background: amir;
+  background: ans2;
+}
+p a {
+  color: green3;
+}
+
+#if-else {
+  font-size: 15px;
+  color: red;
+}
+
+.mybox {
+  background: #333;
+  color: #ffffff;
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mybox2 {
+  background: #2ecc71;
+  color: #ffffff;
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mybox2 h2 {
+  background: #3498db;
+}
+
+.for1 {
+  background: #000;
+}
+
+.for2 {
+  background: #000;
+}
+
+.for3 {
+  background: #000;
+}
+
+.for-1 {
+  width: 500px;
+  background-color: rgb(255, 186.9, 198.7904761905);
+}
+
+.for-2 {
+  width: 1000px;
+  background-color: rgb(255, 181.8, 194.580952381);
+}
+
+.for-3 {
+  width: 1500px;
+  background-color: rgb(255, 176.7, 190.3714285714);
+}
+
+.for-1 {
+  width: 500px;
+  background-color: rgb(255, 186.9, 198.7904761905);
+}
+
+.for-2 {
+  width: 1000px;
+  background-color: rgb(255, 181.8, 194.580952381);
+}
+
+.normal {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.italic {
+  font-weight: italic;
+  font-size: 14px;
+}
+
+.padding-10 {
+  padding-top: 10px;
+  font-size: 1050;
+}
+
+.padding-20 {
+  padding-top: 20px;
+  font-size: 1050;
+}
+
+.padding-30 {
+  padding-top: 30px;
+  font-size: 1050;
+}
+
+.padding-40 {
+  padding-top: 40px;
+  font-size: 1050;
+}
+
+.padding-50 {
+  padding-top: 50px;
+  font-size: 1050;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: #ffffff;
+}
+h1:first-child {
+  color: #f39c12;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: block;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f39c12;
+}
+
+h2 {
+  border: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.all {
+  border: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin: 5px 0px 5px 0px;
+}
+
+/*
+.my{
+  background: #000;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 15px;
+}
+
+.my1{
+  background: red;
+  border:2px solid #000;
+  @extend.my;
+}
+
+.my2{
+ background: yellow;
+ @extend.my;
+
+}
+ */
+/* function */
+.half {
+  width: 400px;
+}
+
+.v-12 {
+  font-family: utn9ody;
+}
+
+.one, .two {
+  background: rgb(18.7864, 83.3136, 46.1492);
+  border-radius: 5%;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+}
+
+one:hover, two:hover {
+  width: 10px;
+}
+
+a.active {
+  width: 10px;
+}
+
+a .active {
+  width: 100px;
+}
+
+.a:hover, .a_image {
+  width: 100px;
+}
+
+a#hige {
+  width: 100px;
+}
+
+a, li a {
+  width: 100px;
+}
+
+true {
+  width: 100px;
+}
+
+a, .abc {
+  width: 100px;
+}
+
+.selector-unify main a, main .selector-unify a {
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+
+.selector-unify {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a.active, .active.link {
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+
+.abc .info, .abc .content nav.sidebar, .content .abc nav.sidebar {
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+
+.test {
+  font-weight: 400;
+}
+
+.test {
+  font-weight: "reg", "med", "bold";
+}
+
+.test {
+  font-weight: 400, 500, 700;
+}
+
+.test {
+  font-weight: 400, 500, 700, 100, 300;
+}
+
+.remove {
+  font-weight: 500, 700;
+}
+
+.merge {
+  font-weight: true;
+}
+
+.merge {
+  font-weight: "reg" 400;
+}
+
+.exists {
+  padding: true;
+}
+
+.global {
+  padding: true;
+}
+
+.mixin {
+  padding: true;
+}
+
+.function {
+  padding: false;
+}
+
+.type {
+  padding: number;
+}
+
+.inspect {
+  padding: null;
+}
+
+.content {
+  --webkit-border-radius:$value;
+  --moz-border-radius:$value;
+  border-radius: 5px;
+  background: #000;
+  border-style: 1px;
+  border-style: dashed;
+}
+
+.bg {
+  background: #000;
+}
+
+#bgid .bgclass {
+  background: #000;
+}
+
+.bgclass:hover {
+  background: #000;
+}
+
+body {
+  background: white;
+}
+
+/*
+@media screen and (max-width: 1300px){
+body {
+    background: red;
+}
+}
+
+@media screen and (max-width: 1000px){
+body {
+    background: green;
+}
+}
+
+@media screen and (max-width: 700px){
+body {
+    background: yellow;
+}
+}
+*/
+@media screen and (max-width: 750px) and (min-width: 350px) {
+  body {
+    background: red !important;
+  }
+}
+@media screen and (max-width: 1500px) and (min-width: 750px) {
+  body {
+    background: green;
+  }
+}
+/* atle have @media directives start thay che. aama aapde selecter aapi jeva no ane pachi ena niche media qvary nakhe to otoma tic proparty set thay jay che example --> .conatiner {
+  width: 1100px;
+  margin: 0px auto;
+}
+@media only screen and (max-width: 1150px) {
+  .conatiner {
+    width: 550px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .conatiner {
+    width: 800px;
+  }
+}
+  aavi rite
+*/
+.conatiner {
+  width: 1100px;
+  margin: 0px auto;
+}
+@media only screen and (max-width: 1150px) {
+  .conatiner {
+    width: 550px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .conatiner {
+    width: 800px;
+  }
+}
+
+.root {
+  color: red;
+  /* @at-root ma aatle thi class ne perant banav se jem ke
+   .root-wapper {
+    color: green;
+  }
+  .root-wapper img {
+    width: 100%;
+  }
+  @at-root ni aape to aa type nu aave 
+
+  .root {
+    color: red;
+    }
+  .root .root-wapper {
+    color: green;
+  }
+  .root .root-wapper img {
+    width: 100%;
+  } ane niaape to uper jevu aave
+  */
+}
+.root-wapper {
+  color: green;
+}
+.root-wapper img {
+  width: 100%;
+}
+
+.item-child {
+  background: pink;
+}
+
+@media print {
+  .insideclose {
+    font-size: 12px;
+    color: green;
+  }
+  .insideclose .insideclose2 {
+    font-size: 12px;
+    color: green;
+  }
+}
+.insideclose .insideclose2 {
+  font-size: 15px;
+  color: green;
+}
+
+/*# sourceMappingURL=style.css.map */

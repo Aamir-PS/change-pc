@@ -1,0 +1,562 @@
+// Import partials
+@import 'variables';
+@import 'mixins';
+@import 'header';
+@import 'mediaQuery';
+@import 'operators';
+@import 'loops.scss';
+
+// Global styles
+body {
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+// Container to hold all content
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Header styles
+header {
+  background-color: $primary-color;
+  color: $white;
+  padding: 20px;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Heading styles for clarity
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: $white;
+
+  // Highlight the first line
+  &:first-child {
+    color: $highlight-color;
+  }
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: block;
+}
+
+@mixin all-center(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $highlight-color;
+}
+
+h2{
+  @include all-center()
+}
+
+@mixin withVar($value) {
+  border: $value;
+  border-radius: $value;
+  padding: $value;
+  margin: $value;
+}
+
+@mixin box() {
+  display: inline-block;  
+  width: 250px;
+  height: 250px;
+}
+
+h2{
+  @include withVar(5px)
+}
+
+@mixin mix($value) {  
+  border: $value;
+  border-radius: $value;
+  // width: 150px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+@mixin mix-Def($top, $left, $bottom, $right) {  
+margin: $top $left $bottom $right;
+}
+
+.all{
+  @include mix(5px);
+  @include mix-Def(5px, 0px, 5px, 0px);
+}
+
+// extend
+/*
+.my{
+  background: #000;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 15px;
+}
+
+.my1{
+  background: red;
+  border:2px solid #000;
+  @extend.my;
+}
+
+.my2{
+ background: yellow;
+ @extend.my;
+
+}
+ */
+ /* function */
+$container-width: 1200;
+
+ @function half($width){
+  @return $width/2 + px;
+ }
+ @function one-thired($width){
+  @return $width/3 + px;
+ }
+ @function one-fourth($width){
+  @return $width/4 + px;
+ }
+
+ .half{
+  width: one-thired($container-width);
+  // padding-top: 500px;
+ }
+
+
+.v-12{ 
+  // font-family: quote(Arial); --> " aana mate                                 
+  // font-family: unquote(Arial); --> " Delete karva mate 
+  // font-family: to-upper-case(Arial); --> font capital karva mate 
+  // font-family: to-lower-case(arial); -->  font small karva mate 
+  // font-family: str-length(Arial); --> lenth mate
+  // font-family:str-index("Arial","r");  
+  // font-family: str-slice("Helvetica Neue",3 ); aagari 3 rase ane bi cut thay jase  
+  font-family: unique-id(     );
+
+}
+
+.one{
+  background: darken($secondary-color, 29);
+  border-radius: 5%;
+  @include box();
+}
+
+$list: 10px, 20px, 30px, 50px;
+// $list2: [40px 50px 60px 70px];
+.two{
+  // @extend.one --> same style mate 
+  // background: darken($white, 0); color darck kare
+  // background: lighten($secondary-color, 10); -->color light kari de 
+  // background: adjust-hue($secondary-color, 30); --> hue color aa ve degri ma 
+  // background: saturat($secondary-color, 10); bride color aape 
+  // background: desaturate($highlight-color, 80);    color darck kare                                                                 
+  // background: mix($secondary-color,red, 90); 2 color mix kare                                                                 
+  // background: transparentize($secondary-color,0.5); color tranparn karva mate                                                              
+  // background: red($secondary-color);  agari me red laykho to te balave ke e ma red color ket lo che                                                 
+  // background: red($secondary-color); ema red, blue, green, hue, lightness, alpha function aave
+  // background: alpha($secondary-color); 
+  @extend.one ;
+  // padding: length($list); varbal ni lenght jova mate   
+  // padding: length((width:10px, height:20px)); ane aa andar lak vu hoy to 
+  // padding: nth($list, -1); aa function e -1 et le back this strat thay and 1 aagari start thay ema e.x me ek varybal ma 3 4 data aape la che me je number jem ke 4 aapa to e ni value(50px aav se) 
+  // padding: set-nth($list, 2, 2em); aama 2 che to eni value 20px ni jagaye 2em thase ane bija bathama padding: je che le lag che; jem ke top10px  right2em bottom 30px ane left 50px thase
+  // padding: set-nth((helvakika, arial, nutito, poppin), 2, Roboto); varible ni hoye ane jo vari ble bana vu hoy to ( ) aavi ri aama lakhay 
+  // padding: join($list, $list2); aa joy karva nu kam kare ane 2 varible ne join kare
+  // padding: join((1, 2, 3), (4 5), comma); aama aapde 2 varble aay pa ane aap de have e 2 na vahe su aapu che te aapanu space, auto, comma aavi ri aapay 
+
+// padding: append((1 2 3), (4 5), comma);  append use 1 value add kar va mate thay 
+// padding: append($list, 71px 80px, space);
+// padding: append((red, green),blue);
+// padding: zip($list, $list2); aavi rite joyin kar se padding: 10px 40px, 20px 50px, 30px 60px, 50px 70px; 2-2 ni parna joyn kare
+// padding: zip(red green blue, 10px 15px 5px); aavi pan aapy  
+// padding: index(($list), 20px); aama index aape exmpal aapda 4 value aape che to aapde je aap su lenii index aape che etle kaya number par che aama 1 thi chalu hay  ane koy number ni hoy tevo add kare to kay print ni thay
+
+// padding: list-separator(($list2));  aama aapd kayo sparetor aape lo che te check thay
+// padding: is-bracketed(($list2)); // aa e chaeck kare ke array che ke nathi [] --> sqaverbracket che ke nathi
+
+}
+
+// ```````````````````````````````````Selector-Functions-Scss```````````````````````````````````
+
+// aape selecter atle id# kato class. jo aapd aatypno selecter banavo hoy to banavi sake che  ane ene id symbole thi lakhaye # che --> ema ek bul kari me # ni andar $ lakhva nu pan emaj aapi di thu etle arror aavi.
+// $selector : selector-nest("ul", "li");
+
+// aabiji type che aama bo alag che aa style.css file ma aa type nu --> one li, two li lag se mane laygu ke alag aav se
+$selector : selector-nest("one, two", "li");
+// &:hover aana thi parnat ma hover lage aapde upar joy ne .a{ xzx &:hover { xzx}} aa type nu
+$selector2 : selector-nest("one, two", "&:hover");
+
+#{$selector2}{
+  width: 10px;
+}
+
+$append : selector-append("a", ".active");
+#{$append}{
+  width: 10px;
+}
+
+$appendvsnest : selector-nest("a", ".active");
+#{$appendvsnest}{
+  width: 100px;
+}
+//  aama mane anara ek error ape lage update che & use kare to emaj lakhava nu
+// ama pe lu class name ane biju add karva nu  --> .a:hover, .a_image
+$appendwithand : selector-append(".a", ":hover, _image");
+#{$appendwithand}{
+  width: 100px;
+}
+
+// nest ane append ma su fark che nest ma-> "a .active" be vache space chute ane append ma sathe aave ex append ma--> "a.active"
+
+
+// aa repalce che aa id kato class replace thase ma function ma 3 lakhva pad se 1 ma aakhu -->"a.abc" 2 ma old selecter--> ".abc" 3 ma new selecter --> "#hige"
+$replace : selector-replace("a.abc", ".abc", "#hige");
+#{$replace}{
+  width: 100px;
+}
+ 
+// second example  aa 3 ma aapde exmaple li a aavu lavu hoy to lavi sake --> "a, .info", ".info", "li a" output -->a, li a 
+$replace : selector-replace("a, .info", ".info", "li a");
+#{$replace}{
+  width: 100px;
+}
+
+// aa superselecter  aa test karva use thay aa true kato false resul aape 
+$superselecter : is-superselector("a", "nav a");
+#{$superselecter}{
+  width: 100px;
+}
+
+// simple-selecters aapde alag alag karvo hoy to aano use thaye jem ke --> a, .abc
+$simple : simple-selectors("a.abc");
+#{$simple}{
+  width: 100px;
+}
+
+// aama aapde unify aa fungtion aa benu mech karva nu try kar se example --> .selector-unify main a, main .selector-unify a aa bathu sathe kari nathe 
+$unify : selector-unify(".selector-unify a", "main a");
+#{$unify}{
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+
+.selector-unify{
+  text-decoration: none;
+  color: $white;
+}
+
+// extend  aabi unify jevu j kam kare  aa kobi nathision bana ve a.active che to ema a che to e .link se kare aatype nu hoy to --> "a.active", "a", ".link"
+$extend : selector-extend("a.active", "a", ".link");
+#{$extend}{
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+// aama aatype nu lakh se --> ".abc .info, .abc .content nav.sidebar, .content .abc nav.sidebar" to aa type nu selecter aav se
+$extend2 : selector-extend(".abc .info", ".info", ".content nav.sidebar");
+#{$extend2}{
+  width: 100px;
+  display: inline-block;
+  background: #000;
+}
+
+
+// map() fungtion start thay 
+// get fungtion aama pela variable banava no ane pachi map function ma property ma map function use kari variable name aapi, key aapa ni jem ke--> "font-weight: map-get($font-weight, reg)" 
+$font-weight: ("reg":400, "med":500, "bold":700);
+.test{
+  font-weight: map-get($font-weight, reg);
+}
+
+// aa no.2 function map-keys che aama 1 function jevu che pan aama bathi key aape
+$map-keys: ("reg":400, "med":500, "bold":700);
+.test{
+  font-weight: map-keys($map-keys);
+}
+
+// aa no.3 function map-value che aa 2 function jevu che pan aama bathi values aape
+$map-values: ("reg":400, "med":500, "bold":700);
+.test{
+  font-weight: map-values($map-values);
+}
+
+// aa no.4 function map-merge che aa ma marge thase 2 variabe marge karva hoy to 2 variable banavi ane pachi 2 ne marge karideva na map-merge($map-merge1, $map-merge2) ne ane pachi map-keys aapi ne (couns ma je variable banave la hoy te aapi deva na) --> aa sithu sithu ni tahase variable niche 1 varible na vine ema merge kari deva nu che
+
+$map-merge1: ("reg":400, "med":500, "bold":700);
+$map-merge2: ("lightest":100, "light":300);
+// 2 ne marge karvu
+$merge : map-merge($map-merge1, $map-merge2);
+.test{
+  font-weight: map-values($merge);
+}
+
+// aa remove che aama  no.4 function map-remove jevu che but aama map-remove ma 1 variable aave ane "," coma pachi je delete karvu hoy te aave
+
+$mapremove1: ("reg":400, "med":500, "bold":700);
+$mapremove2: ("lightest":100, "light":300);
+// 2 aama remove karvu
+$remove : map-remove($mapremove1, "reg");
+.remove{
+  font-weight: map-values($remove);
+}
+
+// aama map-has-key true kato false kar se
+
+$map-has1: ("reg":400, "med":500, "bold":700);
+.merge{
+  font-weight: map-has-key($map-has1, "reg");
+}
+
+// aama nth fungtion che e index aape index etle array ma ketlo number che te
+$map-nth1: ("reg":400, "med":500, "bold":700);
+.merge{
+  font-weight: nth($map-nth1, 1);
+}
+  
+
+// aatla thi have introspection function start thay
+$num: 10px;
+$char: "Arial";
+$list: 10px 20px 30px;
+$map:("reg": 400, "med":500);
+
+// aa variable-exists che aama true ka false aave ane aapde varible dekare karye $num aapi ye ane aama kali "num aapanu
+.exists{
+  padding: variable-exists(num);
+}
+
+// variable global che aama selecter ni anadar hoy to false aave ane bahar hoy to true aave
+$num1: 10px;
+.global{
+    padding: global-variable-exists(num1);
+}
+
+// variable mixin--> etle aapde agari joyu e bathama use thay to proparty marge karva te. aama mixin hoy to true kato fauls aave
+
+@mixin mixin {
+    border-radius: 50px;
+}
+.mixin{
+    padding: mixin-exists(mixin);
+}
+
+// aa che function aa uper jevu se upar mixin hato aama fungtion che fungction hoy to true aave ane ni hoy to false aave
+@function add($a, $b){
+@return $a + $b;
+}
+.function{
+    padding: function-exists(d);
+}
+
+// aa type-of function che ane aama fungtion nu type khabar pade number string ke je hoy te. aama varible aakhu aaapa nu example $num
+.type{
+    padding: type-of($num);
+}
+
+// aama je value hay te print kare ane fulse hoy to je aape type kare lu hoy te aapi de
+.inspect{
+    padding: inspect(null);
+}
+ 
+
+// aatle thi content directive start thay
+@mixin content($value){
+    --webkit-border-radius:$value;
+    --moz-border-radius:$value;
+    border-radius: $value;
+    @content;
+}
+
+// aa ma aapadathi vathare inclued karvu hoy to thase but ; kadva nu ane {} ma proparty nathava ni ane ; close kar va nu. ne @mixin ma @content; lakhava nu.
+.content{
+    @include content(5px)
+    {
+        background: #000;
+    };
+    border-style: 1px ;
+    border-style:dashed;
+}
+
+// pachi aap de aatho class aarite moklavo hoy to  aarite thase mixin ma khali content aap nu ane ane pache mixin name thi include kari aakho class apla che.
+@mixin content1{
+    @content;
+}
+@include content1{
+    .bg{
+        background: #000;
+    };
+};
+
+// pachi aaj rite containt na under selecter aapi include ne ciled aappo hoy to aaarite thase aa output--> #bgid .bgclass aavu aav se
+@mixin content1{
+    #bgid{
+        @content;
+    };
+};
+@include content1{
+    .bgclass{
+        background: #000;
+    };
+};
+
+
+
+// pachi aaj rite aa pede sudo class ma karvu hoy to --> soudo class etle :hover ne e bathu : start thay te. ema aari te kari sake
+@mixin content1{
+    .bgclass{
+        @content;
+    };
+};
+@include content1{
+    &:hover{
+        background: #000;
+    };
+};
+
+// aano aapde media qvery ma pan use kari sake 
+body{
+    background: white;
+}
+/*
+@media screen and (max-width: 1300px){
+body {
+    background: red;
+}
+}
+
+@media screen and (max-width: 1000px){
+body {
+    background: green;
+}
+}
+
+@media screen and (max-width: 700px){
+body {
+    background: yellow;
+}
+}
+*/
+
+// have aavi re media qvery ma use thase 
+
+@mixin media($max, $min){
+@media screen and (max-width:  $max) and (min-width:  $min){
+    @content;
+    }
+}
+
+// uper varible aapi ne worck thase 
+@include media(750px, 350px){
+body{
+    background: red !important;
+}
+}
+
+@include media(1500px,750px){
+    body{
+        background: green ;
+    }
+}
+
+/* atle have @media directives start thay che. aama aapde selecter aapi jeva no ane pachi ena niche media qvary nakhe to otoma tic proparty set thay jay che example --> .conatiner {
+  width: 1100px;
+  margin: 0px auto;
+}
+@media only screen and (max-width: 1150px) {
+  .conatiner {
+    width: 550px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .conatiner {
+    width: 800px;
+  }
+}
+  aavi rite
+*/
+
+.conatiner{
+    width: 1100px;
+    margin: 0px auto;
+
+    @media only screen and (max-width:1150px){
+        width: 550px;
+    }
+    @media only screen and (max-width:550px){
+        width: 800px;
+    }
+};
+
+// @at-root start thay che
+.root{
+  color:red;
+/* @at-root ma aatle thi class ne perant banav se jem ke
+ .root-wapper {
+  color: green;
+}
+.root-wapper img {
+  width: 100%;
+}
+@at-root ni aape to aa type nu aave 
+
+.root {
+  color: red;
+  }
+.root .root-wapper {
+  color: green;
+}
+.root .root-wapper img {
+  width: 100%;
+} ane niaape to uper jevu aave
+*/
+  @at-root{
+  .root-wapper{
+    color: green;
+
+    img{
+      width: 100%;
+
+    }
+  }
+}
+}
+
+.item-child{
+  background: pink;
+}
+@media print{
+  .insideclose{
+    font-size: 12px;
+    color: green;
+
+    .insideclose2{
+    font-size: 12px;
+    color: green;
+
+// aa ne fungtion ni jem bi use thay jo aapde undar aarite aapi de ye to  aarite aakha prent mathi bahar nikri je alag thay jay
+    @at-root(without : media){
+      font-size: 15px;
+      color: green;
+    }
+  }
+  }
+}

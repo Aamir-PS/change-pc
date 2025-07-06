@@ -1,0 +1,24 @@
+$var1: 10;
+$var2: 20;
+
+.operators{
+  padding: 10px == 10px;
+}
+.operators{
+ padding: $var1 - $var2 + px;
+}
+
+@mixin margin($position, $unit) {
+  margin-#{$position}: $unit + px;
+}
+.operators{
+@include margin(left, 10);
+}
+
+@mixin img2($name){
+  .icon-#{$name}{
+    background-image: url("../dist/image/#{$name}.png");
+  }
+}
+
+@include img2(png)
