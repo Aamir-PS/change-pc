@@ -1,0 +1,24 @@
+{
+  "name": "expresstut",
+  "version": "1.0.0",
+  "description": "this is tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src\\server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aamir-PS/express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aamir-PS/express/issues"
+  },
+  "homepage": "https://github.com/Aamir-PS/express#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "express": "^5.1.0"
+  }
+}

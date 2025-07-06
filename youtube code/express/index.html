@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>complex template</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- <link rel="stylesheet" href="./src/bootstrap.min.css"> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    pre {
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      width: 100%;
+      max-width: 100vw;
+    }
+  </style>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Disabled</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1>aa pela express na comand che te nath va na</h1>
+    <h1>aama "dev": "nodemon src\\server.js" nakha vathi jate restart thase</h1>
+    <h1>
+      ane file nath va mate --> res.sendFile(path.join(__dirname, 'index.html'))
+      ane code andar lakha vu hoy to --> res.send(`about`);
+    </h1>
+    <h1>ane status mate --> res.status(505)</h1>
+    <h1>ane status na meaning</h1>
+    <h1>
+      <pre>
+--> Success (200-299): Indicate that the request was successful. 
+    --> Redirection (300-399): Indicate that further action is needed to complete the request, such as a redirect to a new URL. 
+--> Client error (400-499): Indicate that the error is due to the client, such as an invalid request. 
+--> Server error (500-599): Indicate that the server encountered an error and could not fulfill the request, such as a 500 Internal Server Error
+</pre
+      >
+    </h1>
+    <h1>
+      aakhu html page mate sendFile thi send thay -->
+      res.sendFile(path.join(__dirname, 'index.html'));
+    </h1>
+    <h1>
+      ane home page kato folder mate pane folder name "public" ane ema file -->
+      app.use(express.static(path.join(__dirname, "public")));
+    </h1>
+    <h1>
+      pre tag overflow control -->scroll-behavior: smooth; overflow-x: auto;
+      white-space: pre-wrap; width: 100%; max-width: 500px;
+    </h1>
+    <h1>
+     jo aapde url ma je lakhe aave to --> /hello/:name --> <pre>app.get("/hello/:name", (req, res) => {
+  res.send(`hell wor ` + req.params.name);
+  res.status(201);
+  });
+</pre> 
+    </h1>
+  </body>
+
+  <div class="bg-light">
+    <footer class="py-3 mt-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Features</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">About</a>
+        </li>
+      </ul>
+      <p class="text-center text-muted">© 2022 Company, Inc</p>
+    </footer>
+  </div>
+  <!-- <script src="./src/bootstrap.bundle.js"></script> -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"
+  ></script>
+</html>
