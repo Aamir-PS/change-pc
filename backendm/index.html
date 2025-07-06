@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>back-end</title>
+</head>
+
+<body>
+    <h1>BackEnd</h1>
+    <ul>
+        <h1>start command</h1>
+        <li>npm init -y</li>
+        <li>npm i express</li>
+        <li>npm i mongodb mongoose dotenv cors body-parser</li>
+        <li>npm i -D nodemon</li>
+    </ul>
+    <ul>
+        <li>pachi src name nu folder banava nu</li>
+        <li>ema file banava ni index.js</li>
+        <h1>json file ma aapde path mate \\ aapa pade. apde normal ma to 1 \ aapije jem--> foldername\filename.txt but json ma foldername\\filename.txt aatype nu aave</h1>
+        <li>em package.json ma "dev": "nodemon src\\server.js", aa add karva nu </li>
+    </ul>
+    <ul>
+        <h2>pachi aatla variables banavan</h2>
+        <li>have import karva nu --> const express = require('express');</li>
+        <li>have import karva nu --> const dotenv = require('dotenv');</li>
+        <li>have import karva nu --> const cors = require("cors");</li>
+        <li>have import karva nu --> const bodyParser = require ("body-parser");</li>
+        <li>have import karva nu --> const mongoose = require("mongoose");</li>
+    </ul>
+
+    <ul>
+        <h2>pachi aa batha variable ne ek ma store karava na</h2>
+        <li>const app = express();</li>
+        <li>app.use(cors());</li>
+        <li>app.use(bodyParser.json());</li>
+        <li>dotenv.config();</li>
+    </ul>
+
+
+    <h1>app.get("/", (req, res)=>{
+        res.send(`depp key me bekar manas che`)
+        });
+    </h1>
+<ul>
+    <li>pachi .env banava ni</li>
+    <li>pachi .env ma POST = 5001; banava ni --> aama ek bul che ";" aanathi eeror aavi</li>
+    <li>
+        const POST = process.env.POST || 3001;
+        app.listen(POST, ()=>{
+        console.log(`express app listening at http://localhost:${port}`)
+        });
+    </li>
+</ul>
+    <ul>
+        <li>pela mongodb login karva nu --> https://cloud.mongodb.com ma</li>
+        <li>connect ma compass link copy karva ni</li>
+        <li>2. jevu che kay tema link che -->2.Copy the connection string</li>
+        <li>ane e .env ma M_G = mongodb+srv://amir:1234@cluster0.ozmj1.mongodb.net/ add kari</li>
+        <li>mongoose.connect(process.env.M_G)
+        .then(()=>{
+            console.log("db successfuly connected...")
+        }) .catch((err)=>{
+            console.log("db error due to...",err)
+        });
+        </li>
+    </ul>
+    <h1>pachi modul banava mate</h1>
+    <ul>
+        <li>module folder banavi</li>
+        <li>pachi module.js file banava ni</li>
+        <li>pachi mongoose import karavi --> const mongoose = require('mongoose'); aarite</li>
+        <li>
+            const tableSCHEMA = mongoose.Schema({
+                name: {
+                    required: true,
+                    type: String
+                },
+                surname: {
+                    required: true,
+                    type: String,
+                }
+            },{timestamps:true});
+        </li>
+        <li>const tableModel=mongoose.model('tableModel',tableSCHEMA);</li>
+        <li>ane pachi export karva nu --> module.exports=tableModel; aarite react jem</li>
+    </ul>
+
+    <h1>pachi Controllers banava mate</h1>
+    <ul>
+    <li>Controllers folder banava nu</li>
+    <li>Controllers file banava nu</li>
+    <li>bathama try and catch banava na</li>
+    <li>const tableModel = require("../models/model") --> bana vani ni tableModel aavi jay </li>
+    <!-- <li>
+exports.createTable=async (req,res)=>{
+    try{
+        const createTable=new tableModel(req.body);
+        await createTable.save();
+
+        res.status(201).json({
+            msg:"Table Created Successfully",
+            data:createTable,
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+
+exports.AllTableById=async (req,res)=>{
+    try{
+        const allbyid= await tableModel.find();
+
+           res.status(200).json({
+            msg:"All Table-list fetched  Successfully",
+            data:allbyid,
+        })
+
+    }
+      catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}</li> -->
+
+const tableModel = require("../models/model")
+
+exports.createTable=async (req,res)=>{
+    try{
+           const { name, surname } = req.body;
+
+        const existing = await tableModel.findOne({ name });
+        const existing2 = await tableModel.findOne({ surname });
+
+        if (existing || existing2) {
+            return res.status(409).json({
+                msg: "This name and surname already exist. Duplicate data not allowed!",
+            });
+        }
+
+        const createTable=new tableModel(req.body);
+        await createTable.save();
+
+        res.status(201).json({
+            msg:"Table Created Successfully",
+            data:createTable,
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+
+exports.AllTableById=async (req,res)=>{
+    try{
+        const allbyid= await tableModel.find();
+
+           res.status(200).json({
+            msg:"All Table-list fetched  Successfully",
+            data:allbyid,
+        })
+
+    }
+      catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+exports.TableById=async (req,res)=>{
+    try{
+        const tableByID= await tableModel.findById(req.params.id);
+
+        if(!tableByID){
+            res.status(400).json({
+                msg:"Please provide Valid ID🤡🤡🤡"
+            })
+        }
+        else{
+           res.status(200).json({
+            msg:"Table found Successfully",
+            data:tableByID,
+        })
+    }
+    
+    }
+      catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+exports.TableByIdAndDelete=async (req,res)=>{
+    try{
+        const findDelete= await tableModel.findByIdAndDelete(req.params.id);
+
+          
+        if(!findDelete){
+            res.status(400).json({
+                msg:"Please provide Valid ID🤡🤡🤡"
+            })
+        }
+        else{
+           res.status(200).json({
+            msg:"😎Table Deleted Successfully😎",
+        })
+
+    }
+}
+      catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+
+exports.TableByIdAndUpdate=async (req,res)=>{
+    try{
+        const tableByIDAndUPdate= await tableModel.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        if(!tableByIDAndUPdate){
+            res.status(400).json({
+                msg:"Please provide Valid ID🤡🤡🤡"
+            })
+        }
+        else{
+           res.status(200).json({
+            msg:"😃Table Updated Successfully😃",
+            data:tableByIDAndUPdate,
+        })
+        }
+
+    
+    }
+      catch(error){
+        res.status(400).json({
+            msg:"error due to",error,
+        })
+    }
+}
+</ul>
+<h1>pachi routes folder banava nu</h1>
+<ul>
+    <li>pachi routes bana vanu</li>
+    <li>pachi routes file banava ni</li>
+    <li>const express=require('express');
+const { createTable, AllTableById } = require('../Controllers/controller');
+
+const router=express.Router();
+
+router.post("/",createTable);
+router.get("/",AllTableById);
+
+module.exports=router;</li>
+</ul>
+
+<h1>pachi run karva mate</h1>
+<ul>
+    <li>pachi program run karva mate postman ma</li>
+    <li>post select karva nu</li>
+    <li>http://localhost:3001/api/v1/table</li>
+    <li>ane je pramane data che teri te nakh va na</li>
+    <li>
+        {
+  "name":"amir",
+   "surname":"hathiwala"
+}
+    </li>
+</ul>
+
+<h1>pachi mongodb mate aa lakva nu</h1>
+<ul>
+    <li>const tableRouter=require('../routes/routes')
+app.use("/api/v1/table",tableRouter);
+
+const POST = process.env.POSTd || 3001 ;
+app.listen(POST, () => {
+    console.log(`my code is http://localhost:${POST}`)
+});</li>
+</ul>
+</body>
+
+</html>
